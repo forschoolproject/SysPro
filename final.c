@@ -126,9 +126,9 @@ void be_grep(int togrep[2],int tosort[2],int fromsort[2])
     close(togrep[1]);
     close(tosort[0]);
 
-	 
+    	 
 	// dup2(togrep[0],0);
-   // dup2(tosort[1],1);
+    dup2(tosort[1],1);
     
 	 //fpin=fdopen(togrep[0],"r");
     //fscanf(fpin,"%s",argument_buff);
