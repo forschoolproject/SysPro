@@ -37,7 +37,7 @@ void main()
 }
 void be_cat(int togrep[2],int tosort[2],int fromsort[2])
 {
-	char grep_argument[BUFSIZ]="\"",buff[BUFSIZ];
+	char grep_argument[BUFSIZ]="",buff[BUFSIZ];
 	FILE *fpout,*fpin;
 	
 	close(tosort[0]);
@@ -56,13 +56,13 @@ void be_cat(int togrep[2],int tosort[2],int fromsort[2])
 		{
 			grep_argument[strlen(grep_argument)-1]='\0';
 			grep_argument[strlen(grep_argument)-1]='\0';
-			grep_argument[strlen(grep_argument)]='\"';
+	//		grep_argument[strlen(grep_argument)]='\"';
 			break;
 		}
-		strcat(grep_argument,"[");
-      strcat(grep_argument,buff);
-		strcat(grep_argument,"]");
-		strcat(grep_argument,"/|");
+		strcat(grep_argument,"#");
+      		strcat(grep_argument,buff);
+		strcat(grep_argument,"#");
+		strcat(grep_argument,"\\|");
 		
 		
     }
@@ -85,9 +85,9 @@ void be_grep(int togrep[2],int tosort[2],int fromsort[2])
 
 	fgets(argument_buff,BUFSIZ,fpin);
 	argument = (char*)malloc(strlen(argument_buff)+1);
-	strcpy(argument,argument_buff);
-
-	//execlp("grep","grep","-c",argument,"*",NULL);
+        strcpy(argument,argument_buff);
+	printf("%s",argument);
+	//execlp("grep","grep","-c",argument,"aaa.txt",NULL);
 }
 void be_sort(int togrep[2],int tosort[2],int fromsort[2])
 {
